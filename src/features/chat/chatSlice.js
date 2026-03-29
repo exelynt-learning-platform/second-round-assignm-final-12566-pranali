@@ -21,7 +21,7 @@ export const sendMessage = createAsyncThunk(
   }
 );
 
-// ✅ Correct response
+
 return response.data.candidates[0].content.parts[0].text;
     
     } catch (error) {
