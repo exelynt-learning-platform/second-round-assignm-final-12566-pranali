@@ -6,26 +6,34 @@ export const sendMessage = createAsyncThunk(
   async (message, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-  `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`,
-  {
-    contents: [
-      {
-        parts: [{ text: message }]
+        `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`,
+        {
+          contents: [
+            {
+              parts: [{ text: message }],
+            },
+          ],
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      // Safe response handling
+      const text =
+        response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (!text) {
+        return rejectWithValue("No response from AI");
       }
-    ]
-  },
-  {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  }
-);
 
-
-return response.data.candidates[0].content.parts[0].text;
-    
+      return text;
     } catch (error) {
-      return rejectWithValue("API Error");
+      return rejectWithValue(
+        error.response?.data?.error?.message || "API Error"
+      );
     }
   }
 );
@@ -42,6 +50,8 @@ const chatSlice = createSlice({
     builder
       .addCase(sendMessage.pending, (state, action) => {
         state.loading = true;
+        state.error = null;
+
         state.messages.push({
           role: "user",
           content: action.meta.arg,
@@ -49,6 +59,7 @@ const chatSlice = createSlice({
       })
       .addCase(sendMessage.fulfilled, (state, action) => {
         state.loading = false;
+
         state.messages.push({
           role: "ai",
           content: action.payload,
@@ -56,7 +67,8 @@ const chatSlice = createSlice({
       })
       .addCase(sendMessage.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error =
+          action.payload || "Something went wrong. Try again.";
       });
   },
 });

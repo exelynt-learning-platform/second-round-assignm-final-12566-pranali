@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../features/chat/chatSlice";
 import Message from "./Message";
 import Loader from "./Loader";
-
+import { IoSend } from "react-icons/io5";
 const ChatBox = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
@@ -15,11 +15,12 @@ const ChatBox = () => {
 
   const handleSend = () => {
     if (!input.trim()) return;
+
     dispatch(sendMessage(input));
     setInput("");
   };
 
-  // Auto scroll
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
@@ -42,9 +43,15 @@ const ChatBox = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type a message..."
-          onKeyDown={(e) => e.key === "Enter" && handleSend()}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSend();
+          }}
         />
-        <button onClick={handleSend}>Send</button>
+        {/* <button onClick={handleSend}>Send</button> */}
+        {input.trim() && (
+    <IoSend className="send-icon" onClick={handleSend} />
+  )}
+
       </div>
     </div>
   );

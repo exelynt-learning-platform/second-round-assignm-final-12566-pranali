@@ -1,11 +1,12 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
-const Message = ({ msg }) => {
+const Message = React.memo(({ msg }) => {
   return (
     <div className={msg.role === "user" ? "user-msg" : "ai-msg"}>
-      {msg.content}
+      <ReactMarkdown>{msg.content}</ReactMarkdown>
     </div>
   );
-};
+});
 
 export default Message;
