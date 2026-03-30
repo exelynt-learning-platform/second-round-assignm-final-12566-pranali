@@ -1,75 +1,134 @@
-HEAD
-# Getting Started with Create React App
+#  AI Chatbox Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive chatbox application built using React and Redux Toolkit that integrates with an AI API (Gemini/OpenAI) to provide real-time conversational responses.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+##  Features
 
-### `npm start`
+*  Real-time chat with AI
+*  Redux Toolkit for state management
+*  Async API handling using createAsyncThunk
+*  Loading indicator while waiting for response
+*  Error handling for API failures
+*  Fully responsive (Mobile + Desktop)
+*  Unit testing using Jest & React Testing Library
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##  Tech Stack
 
-### `npm test`
+* React.js
+* Redux Toolkit
+* Axios
+* CSS (Responsive Design)
+* Jest + React Testing Library
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+ ├── components/
+ │    ├── ChatBox.js
+ │    ├── Message.js
+ │    ├── Loader.js
+ │    └── __tests__/
+ ├── features/chat/
+ │    └── chatSlice.js
+ ├── App.js
+ ├── App.css
+ └── setupTests.js
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##  Installation & Setup
 
-### `npm run eject`
+### 1. Clone the repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+git clone https://github.com/pra-nali1812/second-round-assignm-final-12566-pranali.git
+cd chatbox-app
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. Install dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+npm install
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Add environment variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file in root:
 
-### Code Splitting
+```
+REACT_APP_GEMINI_API_KEY=your_api_key_here
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+##  Run the App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm start
+```
 
-### Making a Progressive Web App
+App will run at:
+http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+##  Run Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+npm test
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Security
 
-### `npm run build` fails to minify
+* API key is stored using environment variables
+* `.env` file is excluded from GitHub using `.gitignore`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# second-round-assignm-final-12566-pranali
-Final Project Assignment - This repository contains the complete final project code and documentation.
- 4ae25968efb5855ae284113e90a8a26edc2d9fba
+---
+
+##  UI Highlights
+
+* User messages aligned to the right
+* AI responses aligned to the left
+* Smooth scrolling chat interface
+* Mobile-friendly layout
+
+---
+
+## Assignment Highlights
+
+* Implemented Redux for managing:
+
+  * Messages
+  * Loading state
+  * Error handling
+* Integrated AI API for dynamic responses
+* Built responsive UI
+* Added unit tests for components
+
+---
+
+##  Author
+
+**Pranali Bhusal**
+[bhusalpranali2016@gmail.com](mailto:bhusalpranali2016@gmail.com)
+ GitHub: https://github.com/pra-nali1812
+
+---
+
+## Submission
+
+This project is submitted as part of the Second Round Assignment.

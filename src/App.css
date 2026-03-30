@@ -1,4 +1,4 @@
-/* 🔄 Reset */
+/*  Reset */
 * {
   box-sizing: border-box;
 }
@@ -9,14 +9,14 @@ body {
   background: #f5f7fb;
 }
 
-/* 📱 App layout */
+/*  App layout */
 .app {
   display: flex;
   flex-direction: column;
   height: 100dvh; /* ✅ mobile fix */
 }
 
-/* 🔷 Header */
+/*  Header */
 h2 {
   margin: 0;
   padding: 14px;
@@ -27,15 +27,15 @@ h2 {
   font-size: 18px;
 }
 
-/* 📦 Chat container */
+/*  Chat container */
 .chat-container {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 0; /* ✅ important */
+  min-height: 0; 
 }
 
-/* 💬 Chat messages */
+/*  Chat messages */
 .chat-box {
   flex: 1;
   display: flex;
@@ -43,10 +43,10 @@ h2 {
   padding: 15px 40px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  min-height: 0; /* ✅ fix overflow */
+  min-height: 0; 
 }
 
-/* 💬 Message common */
+/*  Message common */
 .user-msg,
 .ai-msg {
   max-width: 60%;
@@ -55,24 +55,24 @@ h2 {
   border-radius: 12px;
   font-size: 14px;
   line-height: 1.4;
-  word-break: break-word; /* ✅ prevent overflow */
+  word-break: break-word; 
 }
 
-/* 👤 User (right) */
+/*  User (right) */
 .user-msg {
   align-self: flex-end;
   background: #d1e7dd;
   border-bottom-right-radius: 0;
 }
 
-/* 🤖 AI (left) */
+/*  AI (left) */
 .ai-msg {
   align-self: flex-start;
   background: #e9ecef;
   border-bottom-left-radius: 0;
 }
 
-/* ⌨️ Input area */
+/* Input area */
 .input-box {
   display: flex;
   align-items: center;
@@ -80,14 +80,14 @@ h2 {
   border-top: 1px solid #ddd;
   background: white;
 
-  position: sticky;   /* ✅ stays visible */
+  position: sticky;  
   bottom: 0;
   z-index: 10;
 
-  padding-bottom: env(safe-area-inset-bottom); /* ✅ mobile safe */
+  padding-bottom: env(safe-area-inset-bottom); 
 }
 
-/* ✏️ Input field */
+/*  Input field */
 .input-box input {
   flex: 1;
   height: 38px;
@@ -99,7 +99,7 @@ h2 {
   width: 100%;
 }
 
-/* 📤 Send icon */
+/*  Send icon */
 .send-icon {
   font-size: 22px;
   color: hsl(198, 91%, 30%);
@@ -107,22 +107,21 @@ h2 {
   margin-left: 10px;
 }
 
-/* ⏳ Loader */
+/*  Loader */
 .loader {
   font-size: 12px;
   color: gray;
   margin: 5px;
 }
 
-/* ❌ Error */
+/*  Error */
 .error {
   color: red;
   font-size: 13px;
 }
 
-/* ========================= */
-/* 📱 MOBILE RESPONSIVE */
-/* ========================= */
+/* MOBILE RESPONSIVE */
+
 
 @media (max-width: 768px) {
 
@@ -137,7 +136,7 @@ h2 {
 
   .user-msg,
   .ai-msg {
-    max-width: 80%;  /* wider for mobile */
+    max-width: 80%; 
     font-size: 13px;
     padding: 8px 10px;
   }
