@@ -1,8 +1,21 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// ✅ Mock ChatBox to avoid Redux dependency
+jest.mock("./components/ChatBox", () => () => (
+  <div>
+    <input type="text" placeholder="chat input" />
+  </div>
+));
+
+describe("App Component", () => {
+  test("renders AI Chatbot heading", () => {
+    render(<App />);
+    expect(screen.getByText(/AI Chatbot/i)).toBeInTheDocument();
+  });
+
+  test("renders ChatBox", () => {
+    render(<App />);
+    expect(screen.getByPlaceholderText(/chat input/i)).toBeInTheDocument();
+  });
 });
