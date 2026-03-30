@@ -121,13 +121,7 @@ npm test
 
 ---
 
-##  Author
 
-**Pranali Bhusal**
-[bhusalpranali2016@gmail.com](mailto:bhusalpranali2016@gmail.com)
- GitHub: https://github.com/pra-nali1812
-
----
 
 ## Submission
 
