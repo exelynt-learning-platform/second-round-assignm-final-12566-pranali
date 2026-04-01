@@ -120,9 +120,6 @@ npm test
 * Added unit tests for components
 
 ---
-
-
-
 ## Submission
 
 This project is submitted as part of the Second Round Assignment.
